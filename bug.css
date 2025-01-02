@@ -1,0 +1,15 @@
+The following CSS code snippet suffers from a common error. The specificity of the selector in the second rule is higher than that of the first rule, resulting in the unexpected style applied to the <p> element.
+
+```css
+div p {
+  color: blue;
+}
+
+div > p {
+  color: red;
+}
+```
+
+In this case, `div > p` is more specific because it explicitly targets `<p>` elements that are direct children of `<div>`.  The first rule `div p` targets all `<p>` elements within a `<div>`, including those nested deeper than direct children.
+
+This can lead to unexpected results, especially when dealing with nested elements and complex stylesheets where the order of selectors might not reflect the intended precedence.
